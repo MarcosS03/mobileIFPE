@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="Button">botão esquerdo</string>
+    <string name="button">lado direito</string>
+    <string name="Entrar">Entrar</string>
+    <string name="Voltar" />
+    <string name="voltar">Voltar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_home">home</string>
+    <string name="txt_users">txt_users\n</string>
+</resources>
