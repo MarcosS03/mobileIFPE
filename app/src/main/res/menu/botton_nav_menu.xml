@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/id_products"
-        android:title="@string/txt_home"
+        android:title="@string/txt_produto"
         android:icon="@drawable/ic_products"
         />
 

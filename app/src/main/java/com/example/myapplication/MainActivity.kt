@@ -7,6 +7,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 import androidx.core.net.toUri
+import androidx.core.os.bundleOf
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.add
+import androidx.fragment.app.commit
+import com.example.myapplication.databinding.FragmentProductsBinding
 
 class MainActivity : AppCompatActivity() {
 
@@ -15,25 +20,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
         binding = ActivityMainBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
-
-
-    }
-
-    private fun discarNumero(){
-        var uri = "Tel: +5581989332144".toUri()
-        val intent = Intent(Intent.ACTION_CALL, uri)
-
-        var numero = uri.toString()
-
-        Toast.makeText(this, numero, Toast.LENGTH_SHORT).show()
-        if (intent.resolveActivity(packageManager)!= null){
-
-            startActivity(intent)
+        setContentView(binding.root)
+        replaceFragment(HomeFragment())
+        binding.bottomNavigationView.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.id_home -> replaceFragment(HomeFragment())
+                R.id.id_users -> replaceFragment(UsersFragment())
+                R.id.id_products -> replaceFragment(ProductsFragment())
+            }
+            true
         }
+
+
     }
+    private fun replaceFragment(fragment: Fragment){
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragmentContainerView, fragment)
+            .commit()
+    }
+
 
 }
